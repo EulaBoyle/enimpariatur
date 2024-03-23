@@ -1,0 +1,114 @@
+import { Config, ESLintConfig } from "#/components/eslint-config";
+
+# Configuration
+
+This plugin provides the following configurations:
+
+## Settings
+
+
+### `jsx.pragma`
+
+(type: `string`, default: `"React"`)
+
+The identifier that's used for JSX Element creation.\
+This should not be a member expression (i.e. use "React" instead of "React.createElement").
+
+### `jsx.fragment`
+
+(type: `string`, default: `"Fragment"`)
+
+The identifier that's used for JSX fragment elements.\
+This should not be a member expression (i.e. use "Fragment" instead of "React.Fragment").
+
+### `jsx.extensions`
+
+(type: `string[]`, default: `[".jsx", ".tsx"]`)
+
+An Array of file extensions to be considered as JSX files.
+
+### `react.version`
+
+(type: `string`, default: `"detect"`)
+
+React version to use, `"detect"` means auto detect React version from the project's dependencies.
+
+### `reactHooks.alias`
+
+(type: `Record<string, string[]>`)
+
+A Record of aliases for React's built-in Hooks. ESLint React will recognize these aliases as equivalent to the built-in Hooks in all its rules.\
+For example, `useState` can also be referred to as `useLocalStorageState`, and `useLayoutEffect` can also be referred to as `useIsomorphicLayoutEffect`\
+(e.g. `{ useState: ["useLocalStorageState"], useLayoutEffect: ["useIsomorphicLayoutEffect"] }`).
+
+## Examples
+
+<ESLintConfig>
+
+<Config>
+
+```js filename=".eslintrc.js"
+// ...
+module.exports = {
+  // ...
+  settings: {
+    eslintReact: {
+      jsx: {
+        pragma: "React",
+        fragment: "Fragment",
+        extensions: [".jsx", ".tsx"]
+      },
+      react: {
+        version: "detect"
+      },
+      reactHooks: {
+        alias: {
+          useState: ["useLocalStorageState"],
+          useLayoutEffect: ["useIsomorphicLayoutEffect"],
+          // ...
+        }
+      }
+    }
+  }
+  // ...
+}
+```
+
+</Config>
+
+<Config>
+
+```js filename="eslint.config.js"
+// ...
+export default [
+  // ...
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    ...eslintReact.configs.recommended,
+    settings: {
+      eslintReact: {
+        jsx: {
+          pragma: "React",
+          fragment: "Fragment",
+          extensions: [".jsx", ".tsx"]
+        },
+        react: {
+          version: "detect"
+        },
+        reactHooks: {
+          alias: {
+            useState: ["useLocalStorageState"],
+            useLayoutEffect: ["useIsomorphicLayoutEffect"],
+            // ...
+          }
+        }
+      }
+    },
+  },
+  // ...
+];
+```
+
+</Config>
+
+</ESLintConfig>

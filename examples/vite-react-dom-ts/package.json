@@ -1,0 +1,30 @@
+{
+  "name": "vite-react-dom-ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@eslint-react/eslint-plugin": "workspace:*",
+    "@tsconfig/node20": "20.1.2",
+    "@tsconfig/strictest": "2.0.2",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18",
+    "@typescript-eslint/eslint-plugin": ">=6.19.1",
+    "@typescript-eslint/parser": ">=6.19.1",
+    "@vitejs/plugin-react": "4.2.1",
+    "eslint": ">=8.56.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.5",
+    "typescript": ">=5.3.3",
+    "vite": "5.0.12"
+  }
+}

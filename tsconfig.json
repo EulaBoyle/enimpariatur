@@ -1,0 +1,16 @@
+{
+  "extends": "eslint-config-with-tsconfig/tsconfig.base.json",
+  "compilerOptions": {
+    "types": [
+      "bun-types"
+    ]
+  },
+  "include": [
+    "*.config.ts",
+    ".eslintrc.cjs",
+    "scripts/**/*.ts",
+    "test",
+    "packages/**/*.config.ts",
+    "packages/**/scripts/**/*.ts"
+  ]
+}
